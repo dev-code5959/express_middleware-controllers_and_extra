@@ -1,15 +1,36 @@
 exports.demo=(req,res)=>{
-        res.send("Hello World!");
-}
-exports.demo1=(req,res)=>{
-        res.send("Hello World! 11");
+        let nameValue = req.params.name;
+        let cityValue = req.params.city;
+        res.status(200).json({
+                name : nameValue,
+                city : cityValue
+        })
 }
 exports.demo2=(req,res)=>{
-        res.send("Hello World! 22 ");
+
+        let name =req.body['name'];
+        let age =req.body['age'];
+        let email =req.body['email'];
+        res.status(200).json({
+                name:name,
+                email:email,
+                age:age
+        });
+}
+exports.demo3=(req,res)=>{
+        
+        let token = req.headers['token'];
+        res.status(200).json({
+                token:token
+        });
 }
 
-exports.demo3=(req,res)=>{
-        res.send("Hello World! 33");
+exports.demo4=(req,res)=>{
+        let Cookie = req.cookies['Cookie_1']
+        res.status(200).json({
+                Cookie:Cookie
+        });
+
 }
 exports.users=(req,res)=>{
         const users = [
